@@ -1,5 +1,29 @@
 class BankAccount:
-  pass
+  """
+    bank account 
+  """
+  def __init__(self, balance=0, interest_rate=.02):
+    """
+      balance is 0, interest rate 2%
+    """
+    self.balance = balance
+    self.interest_rate = interest_rate
+  
+  def deposit(self, amount):
+    if amount<0: 
+      return False
+    self.balance += amount
+    return self.balance
+
+  def withdraw(self, amount):
+    if amount<0: 
+      return False
+    self.balance -= amount
+    return self.balance 
+
+  def accumulate_interest(self): 
+    self.balance += self.balance * self.interest_rate
+    return self.balance
 
 class ChildrensAccount:
   pass
@@ -19,6 +43,8 @@ try:
 except Exception as e:
   print(e)
 
+
+
 # try:
 #   childs_account = ChildrensAccount()
 #   childs_account.deposit(34)
@@ -30,7 +56,7 @@ except Exception as e:
 #   print()
 # except Exception as e:
 #   print(e)
-  
+
 
 # try:
 #   overdraft_account = OverdraftAccount()
